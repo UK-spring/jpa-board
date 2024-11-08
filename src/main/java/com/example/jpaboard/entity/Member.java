@@ -25,8 +25,7 @@ public class Member extends BaseEntity {
     public Member() {
     }
 
-    public Member(Long id, String username, String password, Integer age, Board board) {
-        this.id = id;
+    public Member(String username, String password, Integer age, Board board) {
         this.username = username;
         this.password = password;
         this.age = age;
