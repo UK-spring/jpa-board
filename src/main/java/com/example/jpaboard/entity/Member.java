@@ -22,4 +22,14 @@ public class Member extends BaseEntity {
     @JoinColumn(name = "board_id")
     private Board board;
 
+    public Member() {
+    }
+
+    public Member(Long id, String username, String password, Integer age, Board board) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.board = board;
+    }
 }
