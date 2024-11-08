@@ -1,8 +1,10 @@
 package com.example.jpaboard.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 
+@Getter
 @Entity
 @Table(name = "member")
 public class Member extends BaseEntity {
