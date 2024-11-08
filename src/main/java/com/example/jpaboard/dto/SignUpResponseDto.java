@@ -6,7 +6,13 @@ import lombok.Getter;
 public class SignUpResponseDto {
     private final Long id;
 
-    public SignUpResponseDto(Long id) {
+    private final String username;
+
+    private final Integer age;
+
+    public SignUpResponseDto(Long id, String username, Integer age) {
         this.id = id;
+        this.username = username;
+        this.age = age;
     }
 }
