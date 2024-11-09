@@ -1,5 +1,6 @@
 package com.example.jpaboard.controller;
 
+import com.example.jpaboard.dto.BoardWithAgeResponseDto;
 import com.example.jpaboard.dto.CreateBoardRequestDto;
 import com.example.jpaboard.dto.BoardResponseDto;
 import com.example.jpaboard.service.BoardService;
@@ -36,6 +37,14 @@ public class BoardController {
         List<BoardResponseDto> boardResponseDtoList = boardService.findAll();
 
         return new ResponseEntity<>(boardResponseDtoList, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<BoardWithAgeResponseDto> findById(@PathVariable Long id) {
+
+        BoardWithAgeResponseDto boardWithAgeResponseDto = boardService.findById(id);
+
+        return new ResponseEntity<>(boardWithAgeResponseDto, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

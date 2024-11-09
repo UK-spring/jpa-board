@@ -1,6 +1,7 @@
 package com.example.jpaboard.service;
 
 import com.example.jpaboard.dto.BoardResponseDto;
+import com.example.jpaboard.dto.BoardWithAgeResponseDto;
 import com.example.jpaboard.entity.Board;
 import com.example.jpaboard.entity.Member;
 import com.example.jpaboard.repository.BoardRepository;
@@ -36,10 +37,18 @@ public class BoardService {
                 .toList();
     }
 
+    public BoardWithAgeResponseDto findById(Long id) {
+        Board findBoard = boardRepository.findByIdOrElseThrow(id);
+        Member writer = findBoard.getMember();
+
+        return new BoardWithAgeResponseDto(findBoard.getTitle(), findBoard.getContents(), writer.getAge());
+    }
+
     public void delete(Long id) {
 
         Board findBoard = boardRepository.findByIdOrElseThrow(id);
 
         boardRepository.delete(findBoard);
     }
+
 }
