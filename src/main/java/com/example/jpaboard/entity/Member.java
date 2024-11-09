@@ -20,10 +20,6 @@ public class Member extends BaseEntity {
 
     private Integer age;
 
-    @ManyToOne
-    @JoinColumn(name = "board_id")
-    private Board board;
-
     public Member() {
     }
 
