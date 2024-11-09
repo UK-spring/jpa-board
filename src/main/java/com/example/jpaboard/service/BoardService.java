@@ -36,4 +36,10 @@ public class BoardService {
                 .toList();
     }
 
+    public void delete(Long id) {
+
+        Board findBoard = boardRepository.findByIdOrElseThrow(id);
+
+        boardRepository.delete(findBoard);
+    }
 }
